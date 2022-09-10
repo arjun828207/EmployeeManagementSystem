@@ -76,6 +76,7 @@
     <Compile Include="Management\EmployeeFaculty.cs" />
     <Compile Include="Management\EmployeeNonFaculty.cs" />
     <Compile Include="Management\Employees.cs" />
+    <Compile Include="Management\UserLogins.cs" />
     <Compile Include="UI\AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>

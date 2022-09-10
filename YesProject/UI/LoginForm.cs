@@ -8,15 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YesProject.Management;
 namespace YesProject.UI
 {
     public partial class LoginForm : Form
     {
+        public static LoginForm instance;
+        public  TextBox UserNametxt;
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\apandey\Documents\Employee.mdf;Integrated Security=True;Connect Timeout=30");
 
         public LoginForm()
         {
             InitializeComponent();
+            instance = this;
+            UserNametxt = userNameBox;
 
         }
 
@@ -29,6 +34,7 @@ namespace YesProject.UI
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+
             SqlCommand cmd =
                 new SqlCommand(
                     "select * from UserLogins where UserName='" + userNameBox.Text + "'and Password='" +
@@ -46,7 +52,9 @@ namespace YesProject.UI
             {
                 this.Hide();
                 EmployeeDashboard mainForm = new EmployeeDashboard();
+                mainForm.getEmployeeId(userNameBox.Text);
                 mainForm.ShowDialog();
+                
             }
             else
             {
