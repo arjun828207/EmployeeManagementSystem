@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace YesProject.Management
 {
+    enum  LeaveType
+    {
+        Maternity,
+        Paternity,
+        Casual,
+        Sick,
+        Vacation
+    }
+
     abstract class Employees
     {
         internal string Name { get; set; }

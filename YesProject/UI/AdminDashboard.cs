@@ -29,17 +29,36 @@ namespace YesProject.UI
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
             GetEmployeesRecords();
+            GetLeaveRecords();
+            GetTimeRecords();
         }
 
-        private void GetEmployeesRecords()
+        private DataTable ExecuteReaderForTable(SqlCommand cmd)
         {
-            SqlCommand cmd = new SqlCommand("select * from EmployeeTable", con);
             DataTable dataTable = new DataTable();
             con.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             dataTable.Load(reader);
             con.Close();
-            employeeRecordView.DataSource = dataTable;
+            return dataTable;
+        }
+
+        private void GetEmployeesRecords()
+        {
+            SqlCommand cmd = new SqlCommand("select * from EmployeeTable", con);
+            employeeRecordView.DataSource = ExecuteReaderForTable(cmd);
+        }
+
+        private void GetLeaveRecords()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Leave", con);
+            leaveGridView.DataSource = ExecuteReaderForTable(cmd);
+        }
+
+        private void GetTimeRecords()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM TimeLogging ", con);
+            timeRecordView.DataSource = ExecuteReaderForTable(cmd);
         }
 
         private void c1Button1_Click(object sender, EventArgs e)

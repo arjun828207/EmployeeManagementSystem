@@ -53,6 +53,8 @@ namespace YesProject.UI
             this.c1Button1 = new C1.Win.C1Input.C1Button();
             this.leaveTab = new System.Windows.Forms.TabPage();
             this.timeRecord = new System.Windows.Forms.TabPage();
+            this.leaveGridView = new System.Windows.Forms.DataGridView();
+            this.timeRecordView = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.createRecordTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboType)).BeginInit();
@@ -65,6 +67,10 @@ namespace YesProject.UI
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            this.leaveTab.SuspendLayout();
+            this.timeRecord.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leaveGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeRecordView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -74,10 +80,10 @@ namespace YesProject.UI
             this.tabControl1.Controls.Add(this.timeRecord);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(742, 478);
+            this.tabControl1.Size = new System.Drawing.Size(989, 588);
             this.tabControl1.TabIndex = 0;
             // 
             // createRecordTab
@@ -102,11 +108,11 @@ namespace YesProject.UI
             this.createRecordTab.Controls.Add(this.c1Button2);
             this.createRecordTab.Controls.Add(this.c1Button1);
             this.createRecordTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.createRecordTab.Location = new System.Drawing.Point(4, 22);
-            this.createRecordTab.Margin = new System.Windows.Forms.Padding(2);
+            this.createRecordTab.Location = new System.Drawing.Point(4, 25);
+            this.createRecordTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createRecordTab.Name = "createRecordTab";
-            this.createRecordTab.Padding = new System.Windows.Forms.Padding(2);
-            this.createRecordTab.Size = new System.Drawing.Size(734, 452);
+            this.createRecordTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.createRecordTab.Size = new System.Drawing.Size(981, 559);
             this.createRecordTab.TabIndex = 0;
             this.createRecordTab.Text = "Employee Record";
             this.createRecordTab.UseVisualStyleBackColor = true;
@@ -114,85 +120,78 @@ namespace YesProject.UI
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(256, 60);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(341, 74);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 13);
+            this.label7.Size = new System.Drawing.Size(79, 17);
             this.label7.TabIndex = 20;
             this.label7.Text = "User Name";
             // 
             // userPassword
             // 
             this.userPassword.AutoSize = true;
-            this.userPassword.Location = new System.Drawing.Point(264, 95);
-            this.userPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.userPassword.Location = new System.Drawing.Point(352, 117);
             this.userPassword.Name = "userPassword";
-            this.userPassword.Size = new System.Drawing.Size(53, 13);
+            this.userPassword.Size = new System.Drawing.Size(69, 17);
             this.userPassword.TabIndex = 19;
             this.userPassword.Text = "Password";
             // 
             // userName
             // 
-            this.userName.Location = new System.Drawing.Point(330, 56);
-            this.userName.Margin = new System.Windows.Forms.Padding(2);
+            this.userName.Location = new System.Drawing.Point(440, 69);
+            this.userName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(100, 20);
+            this.userName.Size = new System.Drawing.Size(132, 22);
             this.userName.TabIndex = 18;
             // 
             // userPass
             // 
-            this.userPass.Location = new System.Drawing.Point(330, 88);
-            this.userPass.Margin = new System.Windows.Forms.Padding(2);
+            this.userPass.Location = new System.Drawing.Point(440, 108);
+            this.userPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userPass.Name = "userPass";
-            this.userPass.Size = new System.Drawing.Size(100, 20);
+            this.userPass.Size = new System.Drawing.Size(132, 22);
             this.userPass.TabIndex = 17;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 95);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(13, 117);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 13);
+            this.label5.Size = new System.Drawing.Size(48, 17);
             this.label5.TabIndex = 16;
             this.label5.Text = "Salary";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(246, 22);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(328, 27);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 13);
+            this.label4.Size = new System.Drawing.Size(93, 17);
             this.label4.TabIndex = 15;
             this.label4.Text = "Type of Work";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 88);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(8, 108);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.Size = new System.Drawing.Size(0, 17);
             this.label3.TabIndex = 14;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 56);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(7, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.Size = new System.Drawing.Size(85, 17);
             this.label2.TabIndex = 13;
             this.label2.Text = "Employee Id";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(5, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(111, 17);
             this.label1.TabIndex = 12;
             this.label1.Text = "Employee Name";
             // 
@@ -201,35 +200,39 @@ namespace YesProject.UI
             this.comboType.AllowSpinLoop = false;
             this.comboType.GapHeight = 0;
             this.comboType.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.comboType.Location = new System.Drawing.Point(330, 22);
+            this.comboType.Location = new System.Drawing.Point(440, 27);
+            this.comboType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboType.Name = "comboType";
-            this.comboType.Size = new System.Drawing.Size(99, 18);
+            this.comboType.Size = new System.Drawing.Size(132, 20);
             this.comboType.TabIndex = 11;
             this.comboType.Tag = null;
             this.comboType.VisualStyle = C1.Win.C1Input.VisualStyle.System;
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(93, 57);
+            this.txtId.Location = new System.Drawing.Point(124, 70);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 18);
+            this.txtId.Size = new System.Drawing.Size(133, 20);
             this.txtId.TabIndex = 10;
             this.txtId.Tag = null;
             // 
             // txtSalary
             // 
-            this.txtSalary.Location = new System.Drawing.Point(93, 90);
+            this.txtSalary.Location = new System.Drawing.Point(124, 111);
+            this.txtSalary.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(100, 18);
+            this.txtSalary.Size = new System.Drawing.Size(133, 20);
             this.txtSalary.TabIndex = 9;
             this.txtSalary.Tag = null;
             // 
             // checkFaculty
             // 
             this.checkFaculty.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkFaculty.Location = new System.Drawing.Point(466, 22);
+            this.checkFaculty.Location = new System.Drawing.Point(621, 27);
+            this.checkFaculty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkFaculty.Name = "checkFaculty";
-            this.checkFaculty.Size = new System.Drawing.Size(104, 24);
+            this.checkFaculty.Size = new System.Drawing.Size(139, 30);
             this.checkFaculty.TabIndex = 7;
             this.checkFaculty.Text = "Faculty Member";
             this.checkFaculty.UseVisualStyleBackColor = false;
@@ -238,9 +241,10 @@ namespace YesProject.UI
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(93, 18);
+            this.txtName.Location = new System.Drawing.Point(124, 22);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 18);
+            this.txtName.Size = new System.Drawing.Size(133, 20);
             this.txtName.TabIndex = 3;
             this.txtName.Tag = null;
             // 
@@ -249,18 +253,20 @@ namespace YesProject.UI
             this.employeeRecordView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.employeeRecordView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.employeeRecordView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeeRecordView.Location = new System.Drawing.Point(2, 180);
+            this.employeeRecordView.Location = new System.Drawing.Point(3, 222);
+            this.employeeRecordView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.employeeRecordView.Name = "employeeRecordView";
             this.employeeRecordView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.employeeRecordView.Size = new System.Drawing.Size(590, 271);
+            this.employeeRecordView.Size = new System.Drawing.Size(787, 334);
             this.employeeRecordView.TabIndex = 2;
             this.employeeRecordView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeRecordView_CellClick);
             // 
             // c1Button4
             // 
-            this.c1Button4.Location = new System.Drawing.Point(368, 129);
+            this.c1Button4.Location = new System.Drawing.Point(491, 159);
+            this.c1Button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.c1Button4.Name = "c1Button4";
-            this.c1Button4.Size = new System.Drawing.Size(101, 33);
+            this.c1Button4.Size = new System.Drawing.Size(135, 41);
             this.c1Button4.TabIndex = 0;
             this.c1Button4.Text = "Reset";
             this.c1Button4.UseVisualStyleBackColor = true;
@@ -268,9 +274,10 @@ namespace YesProject.UI
             // 
             // c1Button3
             // 
-            this.c1Button3.Location = new System.Drawing.Point(248, 129);
+            this.c1Button3.Location = new System.Drawing.Point(331, 159);
+            this.c1Button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.c1Button3.Name = "c1Button3";
-            this.c1Button3.Size = new System.Drawing.Size(101, 33);
+            this.c1Button3.Size = new System.Drawing.Size(135, 41);
             this.c1Button3.TabIndex = 0;
             this.c1Button3.Text = "Delete";
             this.c1Button3.UseVisualStyleBackColor = true;
@@ -278,9 +285,10 @@ namespace YesProject.UI
             // 
             // c1Button2
             // 
-            this.c1Button2.Location = new System.Drawing.Point(128, 129);
+            this.c1Button2.Location = new System.Drawing.Point(171, 159);
+            this.c1Button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.c1Button2.Name = "c1Button2";
-            this.c1Button2.Size = new System.Drawing.Size(101, 33);
+            this.c1Button2.Size = new System.Drawing.Size(135, 41);
             this.c1Button2.TabIndex = 0;
             this.c1Button2.Text = "Update";
             this.c1Button2.UseVisualStyleBackColor = true;
@@ -288,9 +296,10 @@ namespace YesProject.UI
             // 
             // c1Button1
             // 
-            this.c1Button1.Location = new System.Drawing.Point(8, 129);
+            this.c1Button1.Location = new System.Drawing.Point(11, 159);
+            this.c1Button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(101, 33);
+            this.c1Button1.Size = new System.Drawing.Size(135, 41);
             this.c1Button1.TabIndex = 0;
             this.c1Button1.Text = "Insert";
             this.c1Button1.UseVisualStyleBackColor = true;
@@ -298,33 +307,53 @@ namespace YesProject.UI
             // 
             // leaveTab
             // 
-            this.leaveTab.Location = new System.Drawing.Point(4, 22);
-            this.leaveTab.Margin = new System.Windows.Forms.Padding(2);
+            this.leaveTab.Controls.Add(this.leaveGridView);
+            this.leaveTab.Location = new System.Drawing.Point(4, 25);
+            this.leaveTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.leaveTab.Name = "leaveTab";
-            this.leaveTab.Padding = new System.Windows.Forms.Padding(2);
-            this.leaveTab.Size = new System.Drawing.Size(734, 452);
+            this.leaveTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.leaveTab.Size = new System.Drawing.Size(981, 559);
             this.leaveTab.TabIndex = 1;
             this.leaveTab.Text = "Leave Record";
             this.leaveTab.UseVisualStyleBackColor = true;
             // 
             // timeRecord
             // 
-            this.timeRecord.Location = new System.Drawing.Point(4, 22);
-            this.timeRecord.Margin = new System.Windows.Forms.Padding(2);
+            this.timeRecord.Controls.Add(this.timeRecordView);
+            this.timeRecord.Location = new System.Drawing.Point(4, 25);
+            this.timeRecord.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.timeRecord.Name = "timeRecord";
-            this.timeRecord.Padding = new System.Windows.Forms.Padding(2);
-            this.timeRecord.Size = new System.Drawing.Size(734, 452);
+            this.timeRecord.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.timeRecord.Size = new System.Drawing.Size(981, 559);
             this.timeRecord.TabIndex = 2;
             this.timeRecord.Text = "Time Record";
             this.timeRecord.UseVisualStyleBackColor = true;
             // 
+            // leaveGridView
+            // 
+            this.leaveGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.leaveGridView.Location = new System.Drawing.Point(19, 97);
+            this.leaveGridView.Name = "leaveGridView";
+            this.leaveGridView.RowTemplate.Height = 24;
+            this.leaveGridView.Size = new System.Drawing.Size(930, 434);
+            this.leaveGridView.TabIndex = 0;
+            // 
+            // timeRecordView
+            // 
+            this.timeRecordView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.timeRecordView.Location = new System.Drawing.Point(33, 182);
+            this.timeRecordView.Name = "timeRecordView";
+            this.timeRecordView.RowTemplate.Height = 24;
+            this.timeRecordView.Size = new System.Drawing.Size(897, 342);
+            this.timeRecordView.TabIndex = 0;
+            // 
             // AdminDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 478);
+            this.ClientSize = new System.Drawing.Size(989, 588);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdminDashboard";
             this.Text = "AdminDashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminDashboard_FormClosed);
@@ -342,6 +371,10 @@ namespace YesProject.UI
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            this.leaveTab.ResumeLayout(false);
+            this.timeRecord.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.leaveGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeRecordView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -371,5 +404,7 @@ namespace YesProject.UI
         private System.Windows.Forms.Label userPassword;
         private System.Windows.Forms.TextBox userName;
         private System.Windows.Forms.TextBox userPass;
+        private DataGridView leaveGridView;
+        private DataGridView timeRecordView;
     }
 }

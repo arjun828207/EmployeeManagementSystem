@@ -73,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\EmployeeDataBaseManager.cs" />
     <Compile Include="Management\EmployeeFaculty.cs" />
     <Compile Include="Management\EmployeeNonFaculty.cs" />
     <Compile Include="Management\Employees.cs" />
@@ -139,9 +140,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>

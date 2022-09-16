@@ -18,6 +18,7 @@ namespace YesProject.UI
         public EmployeeDashboard()
         {
             InitializeComponent();
+            SetLeaveTypeValues();
         }
 
 
@@ -28,38 +29,77 @@ namespace YesProject.UI
             Application.Exit();
         }
 
+        private void OnEmployeeDashBoardLoad(object sender, EventArgs e)
+        {
+            GetLeaveRecords();
+            GetAttendanceRecord();
+        }
+
+        private void SetLeaveTypeValues() => leaveType.DataSource = Enum.GetValues(typeof(LeaveType));
+
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO Leave VALUES(@eid,@startDate,@endDate,@comments,@leaveType)", con);
+            string approvalStatus = "False";
+            SqlCommand cmd = new SqlCommand("INSERT INTO Leave VALUES(@eid,@startDate,@endDate,@comments,@leaveType,@approvalStatus)", con);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@eid",eidSet);//TO DO
+            cmd.Parameters.AddWithValue("@eid",eidSet);
             cmd.Parameters.AddWithValue("@startDate", Convert.ToDateTime(startDate.Text));
             cmd.Parameters.AddWithValue("@endDate",Convert.ToDateTime(endDate.Text));
             cmd.Parameters.AddWithValue("@comments", commentBox.Text);
             cmd.Parameters.AddWithValue("@leaveType", leaveType.Text);
+            cmd.Parameters.AddWithValue("@approvalStatus", approvalStatus);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
+            GetLeaveRecords();
         }
 
         public void getEmployeeId(string userName)
         {
             UserLogins userLogins = new UserLogins();
-            eidSet = userLogins.getEmployeeId(userName);
+            eidSet = userLogins.GetEmployeeId(userName);
         }
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO TimeLogging VALUES(@eid,@startTime,@endTime,@approvalStatus)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO TimeLogging VALUES(@eid,@startTime,@endTime)", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@eid", eidSet);
             cmd.Parameters.AddWithValue("@startTime", Convert.ToDateTime(logInTime.Text));
             cmd.Parameters.AddWithValue("@endTime", Convert.ToDateTime(logOutTime.Text));
-            cmd.Parameters.AddWithValue("@approvalStatus", "False");
+           
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
-           // string y=LoginForm.instance.UserNametxt.Text;
+            GetAttendanceRecord();
+        }
+
+        private DataTable ExecuteReaderForTable(SqlCommand cmd)
+        {
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@eid", eidSet);
+            DataTable dataTable = new DataTable();
+            con.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            dataTable.Load(reader);
+            con.Close();
+            return dataTable;
+        }
+
+        private void GetLeaveRecords()
+        {
+            this.leaveRecordGrid.DataSource = null;
+            this.leaveRecordGrid.Rows.Clear();
+            SqlCommand cmd = new SqlCommand("select * from leave where eid=@eid", con);
+            leaveRecordGrid.DataSource = ExecuteReaderForTable(cmd);
+        }
+
+        private void GetAttendanceRecord()
+        {
+            this.attendanceRecordGrid.DataSource = null;
+            this.attendanceRecordGrid.Rows.Clear();
+            SqlCommand cmd = new SqlCommand("select * from timelogging where eid=@eid", con);
+            attendanceRecordGrid.DataSource = ExecuteReaderForTable(cmd);
         }
     }
 }
