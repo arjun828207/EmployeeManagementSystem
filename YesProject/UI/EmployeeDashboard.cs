@@ -23,6 +23,7 @@ namespace YesProject.UI
 
 
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\apandey\Documents\Employee.mdf;Integrated Security=True;Connect Timeout=30");
+        private EmployeeFaculty employeeFaculty = new EmployeeFaculty();
 
         private void EmployeeDashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -74,32 +75,15 @@ namespace YesProject.UI
             GetAttendanceRecord();
         }
 
-        private DataTable ExecuteReaderForTable(SqlCommand cmd)
-        {
-            cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@eid", eidSet);
-            DataTable dataTable = new DataTable();
-            con.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            dataTable.Load(reader);
-            con.Close();
-            return dataTable;
-        }
-
         private void GetLeaveRecords()
         {
-            this.leaveRecordGrid.DataSource = null;
-            this.leaveRecordGrid.Rows.Clear();
-            SqlCommand cmd = new SqlCommand("select * from leave where eid=@eid", con);
-            leaveRecordGrid.DataSource = ExecuteReaderForTable(cmd);
+            leaveRecordGrid.DataSource = employeeFaculty.GetRecordsForCurrentEmployee("leave", eidSet);
         }
 
         private void GetAttendanceRecord()
         {
-            this.attendanceRecordGrid.DataSource = null;
-            this.attendanceRecordGrid.Rows.Clear();
-            SqlCommand cmd = new SqlCommand("select * from timelogging where eid=@eid", con);
-            attendanceRecordGrid.DataSource = ExecuteReaderForTable(cmd);
+            attendanceRecordGrid.DataSource = employeeFaculty.GetRecordsForCurrentEmployee("time", eidSet);
+
         }
     }
 }

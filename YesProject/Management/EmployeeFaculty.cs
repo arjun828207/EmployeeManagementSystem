@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YesProject.Data;
 
 namespace YesProject.Management
 {
@@ -16,6 +19,8 @@ namespace YesProject.Management
     }
     class EmployeeFaculty:Employees
     {
+        private EmployeeDataBaseManager dataBaseManager = new EmployeeDataBaseManager();
+
        internal string SubjectTeacher { get; set; }
 
         internal string QualificationOfFaculty { get; set; }
@@ -28,6 +33,12 @@ namespace YesProject.Management
                 return (long)(salary * 0.15);
             else
                 return (long)0.30 * salary;
+        }
+
+        internal DataTable GetRecordsForCurrentEmployee(string tableName,string uniqueId)
+        {
+            SqlCommand cmd=dataBaseManager.GetRecordsForCurrentEmployee(tableName);
+            return dataBaseManager.ExecuteReaderCurrentForTable(cmd, uniqueId);
         }
     }
 }

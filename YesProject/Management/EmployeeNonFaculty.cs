@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using YesProject.Data;
 using System.Threading.Tasks;
 
 namespace YesProject.Management
@@ -15,6 +18,8 @@ namespace YesProject.Management
     }
     class EmployeeNonFaculty : Employees
     {
+        private EmployeeDataBaseManager employeeDataBase = new EmployeeDataBaseManager();
+
        internal string Department { get; set; }
        internal int DutyBlock { get; set; }
        internal string TypeOfDuty { get; set; }
@@ -27,6 +32,13 @@ namespace YesProject.Management
                 return (long)(salary * 0.25);
             else
                 return (long)0.45 * salary;
+        }
+
+        internal  DataTable GetExistingEmployees(string tableName)
+        {
+            SqlCommand command= employeeDataBase.GetExistingEmployeeRecords(tableName);
+            DataTable table = employeeDataBase.ExecuteReaderForTable(command);
+            return table;
         }
 
     }

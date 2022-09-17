@@ -19,6 +19,7 @@ namespace YesProject.UI
             InitializeComponent();
             checkFaculty.CheckState = CheckState.Checked;
         }
+        EmployeeNonFaculty employeeNonFaculty = new EmployeeNonFaculty();
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\apandey\Documents\Employee.mdf;Integrated Security=True;Connect Timeout=30");
         private long? tax;
         private void AdminDashboard_FormClosed(object sender, FormClosedEventArgs e)
@@ -33,32 +34,19 @@ namespace YesProject.UI
             GetTimeRecords();
         }
 
-        private DataTable ExecuteReaderForTable(SqlCommand cmd)
-        {
-            DataTable dataTable = new DataTable();
-            con.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            dataTable.Load(reader);
-            con.Close();
-            return dataTable;
-        }
-
         private void GetEmployeesRecords()
         {
-            SqlCommand cmd = new SqlCommand("select * from EmployeeTable", con);
-            employeeRecordView.DataSource = ExecuteReaderForTable(cmd);
+            employeeRecordView.DataSource = employeeNonFaculty.GetExistingEmployees("employee");
         }
 
         private void GetLeaveRecords()
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Leave", con);
-            leaveGridView.DataSource = ExecuteReaderForTable(cmd);
+            leaveGridView.DataSource = employeeNonFaculty.GetExistingEmployees("leave");
         }
 
         private void GetTimeRecords()
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM TimeLogging ", con);
-            timeRecordView.DataSource = ExecuteReaderForTable(cmd);
+            timeRecordView.DataSource = employeeNonFaculty.GetExistingEmployees("time");
         }
 
         private void c1Button1_Click(object sender, EventArgs e)
