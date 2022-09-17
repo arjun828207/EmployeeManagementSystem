@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace YesProject.Data
 {
@@ -13,7 +14,6 @@ namespace YesProject.Data
     {
 
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\apandey\Documents\Employee.mdf;Integrated Security=True;Connect Timeout=30");
-
 
         internal string QueryEmployeeId(string userName)
         {
@@ -128,6 +128,49 @@ namespace YesProject.Data
             dataTable.Load(reader);
             con.Close();
             return dataTable;
+        }
+
+        internal void LeaveApprove(string eid)
+        {
+            try
+            {
+                string query = "UPDATE Leave SET ApprovalStatus='Approved' WHERE LeaveId=@eid";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@eid", eid);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Leave Approved Successfully !!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        internal void LeaveReject(string eid)
+        {
+            try
+            {
+                string query = "UPDATE Leave SET ApprovalStatus='Rejected' WHERE LeaveId=@eid";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@eid", eid);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("User Rejected Successfully !!", "Rejected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }

@@ -19,9 +19,16 @@ namespace YesProject.UI
             InitializeComponent();
             checkFaculty.CheckState = CheckState.Checked;
         }
+
+        internal string leaveId;
         EmployeeNonFaculty employeeNonFaculty = new EmployeeNonFaculty();
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\apandey\Documents\Employee.mdf;Integrated Security=True;Connect Timeout=30");
+
+        SqlConnection con =
+            new SqlConnection(
+                @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\apandey\Documents\Employee.mdf;Integrated Security=True;Connect Timeout=30");
+
         private long? tax;
+
         private void AdminDashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -51,17 +58,22 @@ namespace YesProject.UI
 
         private void c1Button1_Click(object sender, EventArgs e)
         {
+            if (!validateValues())
+                return;
+
             if (checkFaculty.Checked)
                 CalculateTaxForFacutly(out tax);
             else
-                tax = 
-                      CalculateTaxForNonFacutly();
+                tax =
+                    CalculateTaxForNonFacutly();
 
             string taxCalculated = tax.ToString();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO EmployeeTable VALUES(@name,@salary,@Id,@type,@faculty,@tax)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO EmployeeTable VALUES(@name,@salary,@Id,@type,@faculty,@tax)",
+                con);
             cmd.CommandType = CommandType.Text;
-            SqlCommand cmdUser = new SqlCommand("INSERT INTO UserLogins VALUES(@userName,@userPassword,@name,@employeeId)", con);
+            SqlCommand cmdUser =
+                new SqlCommand("INSERT INTO UserLogins VALUES(@userName,@userPassword,@name,@employeeId)", con);
             cmdUser.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@name", txtName.Text);
             cmd.Parameters.AddWithValue("@salary", txtSalary.Text);
@@ -81,6 +93,18 @@ namespace YesProject.UI
             ResetFormControl();
 
         }
+
+        private bool validateValues()
+        {
+            if (txtName.Text == "" || txtId.Text == "" || txtSalary.Text == "" || string.IsNullOrEmpty(comboType.Text)
+                || checkFaculty.Text == "" || userName.Text == "" || userPass.Text == "")
+            {
+                MessageBox.Show("Values cannot be Empty", "Please ReEnter Values", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
         private void CalculateTaxForFacutly(out long? tax)
         {
             EmployeeFaculty employeeFaculty = new EmployeeFaculty();
@@ -136,11 +160,19 @@ namespace YesProject.UI
 
         private void c1Button2_Click(object sender, EventArgs e)
         {
+            if (checkFaculty.Checked)
+                CalculateTaxForFacutly(out tax);
+            else
+                tax =
+                    CalculateTaxForNonFacutly();
+
+            string taxCalculated = tax.ToString();
+
             if (txtId.Text !="")
             {
                 SqlCommand cmd =
                     new SqlCommand(
-                        "UPDATE  EmployeeTable SET Name=@name,salary=@salary,[Type of work]=@type,[Faculty Member]=@faculty WHERE [Employee Id]=@Id",
+                        "UPDATE  EmployeeTable SET Name=@name,salary=@salary,[Type of work]=@type,[Faculty Member]=@faculty,[Tax]=@tax WHERE [Employee Id]=@Id",
                         con);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@name", txtName.Text);
@@ -148,7 +180,7 @@ namespace YesProject.UI
                 cmd.Parameters.AddWithValue("@Id", txtId.Text);
                 cmd.Parameters.AddWithValue("@type", comboType.Text);
                 cmd.Parameters.AddWithValue("@faculty", checkFaculty.Text);
-                cmd.Parameters.AddWithValue("@tax", "0");
+                cmd.Parameters.AddWithValue("@tax", taxCalculated);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -188,5 +220,29 @@ namespace YesProject.UI
 
         private void checkFaculty_CheckedChanged(object sender, EventArgs e) =>
             comboType.ItemsDataSource=Enum.GetValues(checkFaculty.Checked ? typeof(QualificationValues) : typeof(TypeOfDutyValues));
+
+        private void leaveRejectBtn_Click(object sender, EventArgs e)
+        {
+            if (leaveId != "")
+            {
+                employeeNonFaculty.RejectEmployeeLeave(leaveId);
+                GetLeaveRecords();
+            }
+        }
+
+        private void leaveApproveBtn_Click(object sender, EventArgs e)
+        {
+            if (leaveId != "")
+            {
+                employeeNonFaculty.ApproveEmployeeLeave(leaveId);
+                GetLeaveRecords();
+            }
+        }
+        
+        private void leaveGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            leaveId = leaveGridView.SelectedRows[0].Cells[6].Value.ToString();
+        }
+
     }
 }

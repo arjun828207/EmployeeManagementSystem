@@ -41,5 +41,14 @@ namespace YesProject.Management
             return table;
         }
 
+        internal void RejectEmployeeLeave(string eid)
+        {
+            employeeDataBase.LeaveReject(eid);
+        }
+
+        internal void ApproveEmployeeLeave(string eid)
+        {
+            employeeDataBase.LeaveApprove(eid);
+        }
     }
 }
