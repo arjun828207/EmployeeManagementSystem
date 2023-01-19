@@ -1,11 +1,6 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace YesProject.Data
@@ -34,7 +29,7 @@ namespace YesProject.Data
                 con.Close();
             }
 
-            return "";
+            return string.Empty;
 
         }
 
@@ -161,7 +156,7 @@ namespace YesProject.Data
                 cmd.Parameters.AddWithValue("@eid", eid);
                 con.Open();
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("User Rejected Successfully !!", "Rejected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Leave Rejected Successfully !!", "Rejected", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

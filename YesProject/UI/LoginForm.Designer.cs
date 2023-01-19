@@ -173,7 +173,7 @@
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.PasswordChar = '*';
             this.passwordBox.Size = new System.Drawing.Size(272, 30);
-            this.passwordBox.TabIndex = 6;
+            this.passwordBox.TabIndex = 2;
             // 
             // LoginForm
             // 

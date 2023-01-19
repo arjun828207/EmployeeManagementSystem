@@ -257,8 +257,14 @@ namespace YesProject.UI
             // 
             // employeeRecordView
             // 
+            this.employeeRecordView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.employeeRecordView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.employeeRecordView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.employeeRecordView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.employeeRecordView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.employeeRecordView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.employeeRecordView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.employeeRecordView.Location = new System.Drawing.Point(3, 222);
             this.employeeRecordView.Margin = new System.Windows.Forms.Padding(4);
@@ -326,7 +332,7 @@ namespace YesProject.UI
             this.leaveTab.Controls.Add(this.leaveRejectBtn);
             this.leaveTab.Controls.Add(this.leaveApproveBtn);
             this.leaveTab.Controls.Add(this.leaveGridView);
-            this.leaveTab.ForeColor = System.Drawing.Color.Green;
+            this.leaveTab.ForeColor = System.Drawing.Color.Black;
             this.leaveTab.Location = new System.Drawing.Point(4, 28);
             this.leaveTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.leaveTab.Name = "leaveTab";
@@ -362,6 +368,14 @@ namespace YesProject.UI
             // 
             // leaveGridView
             // 
+            this.leaveGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.leaveGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.leaveGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.leaveGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.leaveGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.leaveGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.leaveGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.leaveGridView.Location = new System.Drawing.Point(19, 97);
             this.leaveGridView.Name = "leaveGridView";
@@ -385,6 +399,10 @@ namespace YesProject.UI
             // 
             // timeRecordView
             // 
+            this.timeRecordView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.timeRecordView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.timeRecordView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.timeRecordView.Location = new System.Drawing.Point(33, 182);
             this.timeRecordView.Name = "timeRecordView";

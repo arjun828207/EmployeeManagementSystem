@@ -40,7 +40,7 @@ namespace YesProject.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string approvalStatus = "False";
+            string approvalStatus = "Pending";
             SqlCommand cmd = new SqlCommand("INSERT INTO Leave VALUES(@eid,@startDate,@endDate,@comments,@leaveType,@approvalStatus)", con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@eid",eidSet);

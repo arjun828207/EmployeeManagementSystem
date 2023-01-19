@@ -64,6 +64,9 @@ namespace YesProject.UI
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControl1.Controls.Add(this.leaveApply);
             this.tabControl1.Controls.Add(this.timeLogin);
@@ -71,7 +74,7 @@ namespace YesProject.UI
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(797, 448);
+            this.tabControl1.Size = new System.Drawing.Size(1190, 688);
             this.tabControl1.TabIndex = 0;
             // 
             // leaveApply
@@ -93,7 +96,7 @@ namespace YesProject.UI
             this.leaveApply.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.leaveApply.Name = "leaveApply";
             this.leaveApply.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.leaveApply.Size = new System.Drawing.Size(789, 416);
+            this.leaveApply.Size = new System.Drawing.Size(1182, 656);
             this.leaveApply.TabIndex = 1;
             this.leaveApply.Text = "Leave";
             this.leaveApply.UseVisualStyleBackColor = true;
@@ -101,7 +104,7 @@ namespace YesProject.UI
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(223, 191);
+            this.label7.Location = new System.Drawing.Point(344, 248);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(194, 28);
@@ -110,17 +113,25 @@ namespace YesProject.UI
             // 
             // leaveRecordGrid
             // 
+            this.leaveRecordGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.leaveRecordGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.leaveRecordGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.leaveRecordGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.leaveRecordGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.leaveRecordGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.leaveRecordGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.leaveRecordGrid.Location = new System.Drawing.Point(12, 223);
+            this.leaveRecordGrid.Location = new System.Drawing.Point(12, 280);
             this.leaveRecordGrid.Margin = new System.Windows.Forms.Padding(4);
             this.leaveRecordGrid.Name = "leaveRecordGrid";
-            this.leaveRecordGrid.Size = new System.Drawing.Size(645, 185);
+            this.leaveRecordGrid.Size = new System.Drawing.Size(1162, 321);
             this.leaveRecordGrid.TabIndex = 11;
             // 
             // button1
             // 
             this.button1.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.button1.Location = new System.Drawing.Point(680, 13);
+            this.button1.Location = new System.Drawing.Point(843, 13);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 46);
@@ -142,7 +153,7 @@ namespace YesProject.UI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(346, 20);
+            this.label5.Location = new System.Drawing.Point(416, 13);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(122, 28);
@@ -181,7 +192,7 @@ namespace YesProject.UI
             // leaveType
             // 
             this.leaveType.FormattingEnabled = true;
-            this.leaveType.Location = new System.Drawing.Point(131, 13);
+            this.leaveType.Location = new System.Drawing.Point(155, 13);
             this.leaveType.Margin = new System.Windows.Forms.Padding(4);
             this.leaveType.Name = "leaveType";
             this.leaveType.Size = new System.Drawing.Size(200, 35);
@@ -189,10 +200,10 @@ namespace YesProject.UI
             // 
             // commentBox
             // 
-            this.commentBox.Location = new System.Drawing.Point(475, 13);
+            this.commentBox.Location = new System.Drawing.Point(557, 13);
             this.commentBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.commentBox.Name = "commentBox";
-            this.commentBox.Size = new System.Drawing.Size(200, 141);
+            this.commentBox.Size = new System.Drawing.Size(279, 204);
             this.commentBox.TabIndex = 2;
             this.commentBox.Text = "";
             // 
@@ -204,7 +215,7 @@ namespace YesProject.UI
             this.endDate.Calendar.DayNameLength = 1;
             this.endDate.GapHeight = 0;
             this.endDate.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.endDate.Location = new System.Drawing.Point(131, 129);
+            this.endDate.Location = new System.Drawing.Point(155, 130);
             this.endDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.endDate.Name = "endDate";
             this.endDate.Size = new System.Drawing.Size(200, 32);
@@ -219,7 +230,7 @@ namespace YesProject.UI
             this.startDate.Calendar.DayNameLength = 1;
             this.startDate.GapHeight = 0;
             this.startDate.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.startDate.Location = new System.Drawing.Point(131, 70);
+            this.startDate.Location = new System.Drawing.Point(155, 70);
             this.startDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.startDate.Name = "startDate";
             this.startDate.Size = new System.Drawing.Size(200, 32);
@@ -239,25 +250,29 @@ namespace YesProject.UI
             this.timeLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.timeLogin.Name = "timeLogin";
             this.timeLogin.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.timeLogin.Size = new System.Drawing.Size(789, 416);
+            this.timeLogin.Size = new System.Drawing.Size(1182, 656);
             this.timeLogin.TabIndex = 2;
             this.timeLogin.Text = "Attendance";
             this.timeLogin.UseVisualStyleBackColor = true;
             // 
             // attendanceRecordGrid
             // 
+            this.attendanceRecordGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.attendanceRecordGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.attendanceRecordGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.attendanceRecordGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.attendanceRecordGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.attendanceRecordGrid.Location = new System.Drawing.Point(11, 205);
             this.attendanceRecordGrid.Margin = new System.Windows.Forms.Padding(4);
             this.attendanceRecordGrid.Name = "attendanceRecordGrid";
-            this.attendanceRecordGrid.Size = new System.Drawing.Size(649, 206);
+            this.attendanceRecordGrid.Size = new System.Drawing.Size(755, 276);
             this.attendanceRecordGrid.TabIndex = 5;
             // 
             // submitBtn
             // 
             this.submitBtn.Font = new System.Drawing.Font("Lucida Bright", 13.8F);
             this.submitBtn.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.submitBtn.Location = new System.Drawing.Point(361, 137);
+            this.submitBtn.Location = new System.Drawing.Point(11, 142);
             this.submitBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(131, 57);
@@ -271,7 +286,7 @@ namespace YesProject.UI
             this.logOutTime.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
             this.logOutTime.GapHeight = 0;
             this.logOutTime.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.logOutTime.Location = new System.Drawing.Point(145, 157);
+            this.logOutTime.Location = new System.Drawing.Point(162, 82);
             this.logOutTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logOutTime.Name = "logOutTime";
             this.logOutTime.Size = new System.Drawing.Size(200, 32);
@@ -283,7 +298,7 @@ namespace YesProject.UI
             this.logInTime.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
             this.logInTime.GapHeight = 0;
             this.logInTime.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.logInTime.Location = new System.Drawing.Point(145, 82);
+            this.logInTime.Location = new System.Drawing.Point(157, 11);
             this.logInTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logInTime.Name = "logInTime";
             this.logInTime.Size = new System.Drawing.Size(200, 32);
@@ -293,7 +308,7 @@ namespace YesProject.UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 161);
+            this.label2.Location = new System.Drawing.Point(6, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(150, 28);
             this.label2.TabIndex = 1;
@@ -303,7 +318,7 @@ namespace YesProject.UI
             // 
             this.logIn.AutoSize = true;
             this.logIn.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logIn.Location = new System.Drawing.Point(6, 76);
+            this.logIn.Location = new System.Drawing.Point(6, 11);
             this.logIn.Name = "logIn";
             this.logIn.Size = new System.Drawing.Size(134, 28);
             this.logIn.TabIndex = 0;
@@ -313,7 +328,7 @@ namespace YesProject.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1193, 690);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EmployeeDashboard";
